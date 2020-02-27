@@ -1,28 +1,30 @@
 package myLinkedList;
 
-import java.awt.*;
-
 public class MyLinkedList<E> {
 
-    public int size;
-    transient Node<E> first;
-    transient Node<E> last;
-    transient Node<E> newNode;
+    public int size = 0;
+    public Node<E> first = null;
+    public Node<E> last = null;
+    public Node<E> newNode;
 
 
     //  public MyLinkedList(){};
 
-    public void add(E item){
-        size++;
+    public void add(E item) {
 
-        if (first == null){
-            first = new Node<E>(item,null,null);
+        if (first == null) {
+            first = new Node<>(item, null, null);
             last = first;
-        }
+        } else {
 
-        newNode = new Node<E>(item, last, null);
-        last.next = newNode;
-        last = newNode;
+            newNode = new Node<>(item, last, null);
+            last.next = newNode;
+            last = newNode;
+
+            if (size == 2) {
+                first.next = newNode;
+            }
+        }
     }
 
     @Override
@@ -34,12 +36,13 @@ public class MyLinkedList<E> {
                 '}';
     }
 
-    private static class Node<E>{
+    private static class Node<E> extends MyLinkedList<E> {
         E item;
         Node<E> previous;
         Node<E> next;
 
         public Node(E item, Node<E> previous, Node<E> next) {
+            size++;
             this.item = item;
             this.previous = previous;
             this.next = next;
@@ -47,7 +50,22 @@ public class MyLinkedList<E> {
 
         @Override
         public String toString() {
-            return "" + item;
+            if ((this.previous != null) && (this.next != null)) {
+                return "Node{" +
+                        "item=" + item +
+                        ", previous=" + previous.item +
+                        ", next=" + next.item +
+                        '}';
+            } else if (this.previous == null) {
+                return "Node{" +
+                        "item=" + item +
+                        ", next=" + next.item +
+                        '}';
+            } else
+                return "Node{" +
+                        "item=" + item +
+                        ", previous=" + previous.item +
+                        '}';
         }
     }
 }

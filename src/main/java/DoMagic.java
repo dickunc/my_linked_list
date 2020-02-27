@@ -8,6 +8,6 @@ public class DoMagic {
         myLinkedList.add("Third");
         myLinkedList.add("Forth");
 
-        System.out.println(myLinkedList);
+        System.out.println(myLinkedList.first);
     }
 }
