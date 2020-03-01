@@ -7,9 +7,6 @@ public class MyLinkedList<E> {
     public Node<E> last = null;
     public Node<E> newNode;
 
-
-    //  public MyLinkedList(){};
-
     public void add(E item) {
 
         if (first == null) {
@@ -24,6 +21,15 @@ public class MyLinkedList<E> {
             if (size == 2) {
                 first.next = newNode;
             }
+        }
+    }
+
+    public MyLinkedList() {
+    }
+
+    public MyLinkedList(E[] items) {
+        for (E item : items) {
+            add(item);
         }
     }
 

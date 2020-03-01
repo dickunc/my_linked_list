@@ -1,5 +1,9 @@
 import myLinkedList.MyLinkedList;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 public class DoMagic {
     public static void main(String[] args) {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
@@ -9,5 +13,13 @@ public class DoMagic {
         myLinkedList.add("Forth");
 
         System.out.println(myLinkedList.first);
+
+        MyLinkedList<Integer> integerMyLinkedList = new MyLinkedList<>(new Integer[]{0, 1, 2});
+
+        System.out.println(integerMyLinkedList.last);
+
+        MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
+        stringMyLinkedList.add("Sixth");
+        System.out.println(stringMyLinkedList.last);
     }
 }
