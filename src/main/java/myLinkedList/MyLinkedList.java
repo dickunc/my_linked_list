@@ -7,6 +7,15 @@ public class MyLinkedList<E> {
     public Node<E> last = null;
     public Node<E> newNode;
 
+    public MyLinkedList() {
+    }
+
+    public MyLinkedList(E[] items) {
+        for (E item : items) {
+            add(item);
+        }
+    }
+
     public void add(E item) {
 
         if (first == null) {
@@ -24,13 +33,16 @@ public class MyLinkedList<E> {
         }
     }
 
-    public MyLinkedList() {
+    public Node<E> getNext(Node<E> item) {
+        if (item.next != null)
+            return item.next;
+        else return last;
     }
 
-    public MyLinkedList(E[] items) {
-        for (E item : items) {
-            add(item);
-        }
+    public Node<E> getPrevious(Node<E> item) {
+        if (item.previous != null)
+            return item.previous;
+        else return first;
     }
 
     @Override

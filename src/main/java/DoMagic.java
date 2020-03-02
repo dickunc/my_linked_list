@@ -20,6 +20,6 @@ public class DoMagic {
 
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         stringMyLinkedList.add("Sixth");
-        System.out.println(stringMyLinkedList.last);
+        System.out.println(stringMyLinkedList.getPrevious(stringMyLinkedList.last));
     }
 }
