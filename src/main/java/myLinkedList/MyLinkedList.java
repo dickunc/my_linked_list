@@ -1,11 +1,12 @@
 package myLinkedList;
 
-public class MyLinkedList<E> {
+public class MyLinkedList<E> implements Iterator {
 
     public int size = 0;
     public Node<E> first = null;
     public Node<E> last = null;
     public Node<E> newNode;
+    public Node<E> currentNode = null;
 
     public MyLinkedList() {
     }
@@ -52,6 +53,31 @@ public class MyLinkedList<E> {
                 ", last=" + last +
                 ", newNode=" + newNode +
                 '}';
+    }
+
+    @Override
+    public void getIterator() {
+        currentNode = this.first;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return currentNode.next != null;
+    }
+
+    @Override
+    public boolean hasPrevious() {
+        return currentNode.previous != null;
+    }
+
+    @Override
+    public void next() {
+        currentNode = currentNode.next;
+    }
+
+    @Override
+    public void previous() {
+        currentNode = currentNode.previous;
     }
 
     private static class Node<E> extends MyLinkedList<E> {
