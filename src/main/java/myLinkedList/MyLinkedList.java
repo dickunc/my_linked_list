@@ -1,6 +1,6 @@
 package myLinkedList;
 
-public class MyLinkedList<E> implements Iterator {
+public class MyLinkedList<E> {
 
     public int size = 0;
     public Node<E> first = null;
@@ -34,17 +34,6 @@ public class MyLinkedList<E> implements Iterator {
         }
     }
 
-    public Node<E> getNext(Node<E> item) {
-        if (item.next != null)
-            return item.next;
-        else return last;
-    }
-
-    public Node<E> getPrevious(Node<E> item) {
-        if (item.previous != null)
-            return item.previous;
-        else return first;
-    }
 
     @Override
     public String toString() {
@@ -55,35 +44,12 @@ public class MyLinkedList<E> implements Iterator {
                 '}';
     }
 
-    @Override
-    public void getIterator() {
-        currentNode = this.first;
-    }
 
-    @Override
-    public boolean hasNext() {
-        return currentNode.next != null;
-    }
-
-    @Override
-    public boolean hasPrevious() {
-        return currentNode.previous != null;
-    }
-
-    @Override
-    public void next() {
-        currentNode = currentNode.next;
-    }
-
-    @Override
-    public void previous() {
-        currentNode = currentNode.previous;
-    }
-
-    private static class Node<E> extends MyLinkedList<E> {
+    static class Node<E> extends MyLinkedList<E> {
         E item;
-        Node<E> previous;
-        Node<E> next;
+
+        private Node<E> previous;
+        private Node<E> next;
 
         public Node(E item, Node<E> previous, Node<E> next) {
             size++;
@@ -91,6 +57,21 @@ public class MyLinkedList<E> implements Iterator {
             this.previous = previous;
             this.next = next;
         }
+
+        public Node<E> getNext() {
+            if (this.next != null)
+                return this.next;
+                //   else return last; exception is needed
+            else return null;
+        }
+
+        public Node<E> getPrevious() {
+            if (this.previous != null)
+                return this.previous;
+                //  else return first; exception is needed
+            else return null;
+        }
+
 
         @Override
         public String toString() {
