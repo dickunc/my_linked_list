@@ -17,7 +17,12 @@ public class MyLinkedList<E> {
         }
     }
 
+    public Iterator getIterator() {
+        return new Iterator(this);
+    }
+
     public void add(E item) {
+        size++;
 
         if (first == null) {
             first = new Node<>(item, null, null);
@@ -35,14 +40,6 @@ public class MyLinkedList<E> {
     }
 
 
-    @Override
-    public String toString() {
-        return "MyLinkedList{" +
-                "first=" + first +
-                ", last=" + last +
-                ", newNode=" + newNode +
-                '}';
-    }
 
 
     static class Node<E> extends MyLinkedList<E> {
@@ -52,7 +49,6 @@ public class MyLinkedList<E> {
         private Node<E> next;
 
         public Node(E item, Node<E> previous, Node<E> next) {
-            size++;
             this.item = item;
             this.previous = previous;
             this.next = next;
@@ -92,5 +88,19 @@ public class MyLinkedList<E> {
                         ", previous=" + previous.item +
                         '}';
         }
+    }
+
+    @Override
+    public String toString() {
+        String toString;
+        Iterator iterator = this.getIterator();
+        toString = iterator.getItem().toString();
+
+        do {
+            iterator.next();
+            toString = toString + iterator.getItem().toString();
+        } while (iterator.hasNext());
+
+        return toString;
     }
 }

@@ -1,0 +1,7 @@
+<root>
+    <item name='org.junit.Assert void assertEquals(long, long)'>
+        <annotation name='org.jetbrains.annotations.Contract'>
+            <val name="pure" val="true"/>
+        </annotation>
+    </item>
+</root>

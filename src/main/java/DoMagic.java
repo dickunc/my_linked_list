@@ -21,7 +21,7 @@ public class DoMagic {
 
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         stringMyLinkedList.add("Sixth");
-        Iterator iterator = new Iterator(stringMyLinkedList);
+        Iterator iterator = stringMyLinkedList.getIterator();
         System.out.println(iterator.getItem());
 
         do {
