@@ -5,7 +5,7 @@ import myLinkedList.MyLinkedList.Node;
 public class Iterator {
     private Node currentNode = null;
 
-    public Iterator(MyLinkedList list) {
+    protected Iterator(MyLinkedList list) {
         currentNode = list.first;
     }
 
