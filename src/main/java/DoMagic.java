@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DoMagic {
     public static void main(String[] args) {
-/*        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("First");
         myLinkedList.add("Second");
         myLinkedList.add("Third");
@@ -17,7 +17,7 @@ public class DoMagic {
 
         MyLinkedList<Integer> integerMyLinkedList = new MyLinkedList<>(new Integer[]{0, 1, 2});
 
-        System.out.println(integerMyLinkedList.last);*/
+        System.out.println(integerMyLinkedList.last);
 
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         stringMyLinkedList.add("Sixth");

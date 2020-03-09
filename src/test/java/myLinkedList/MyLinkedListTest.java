@@ -54,7 +54,6 @@ public class MyLinkedListTest {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         Iterator iterator = myLinkedList.getIterator();
         iterator.next();
-        iterator.next();
         iterator.previous();
         Assert.assertEquals(true, iterator.hasPrevious());
     }

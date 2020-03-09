@@ -5,8 +5,6 @@ public class MyLinkedList<E> {
     public int size = 0;
     public Node<E> first = null;
     public Node<E> last = null;
-    public Node<E> newNode;
-    public Node<E> currentNode = null;
 
     public MyLinkedList() {
     }
@@ -29,13 +27,9 @@ public class MyLinkedList<E> {
             last = first;
         } else {
 
-            newNode = new Node<>(item, last, null);
+            Node<E> newNode = new Node<>(item, last, null);
             last.next = newNode;
             last = newNode;
-
-            if (size == 2) {
-                first.next = newNode;
-            }
         }
     }
 

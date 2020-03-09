@@ -1,33 +1,32 @@
 package myLinkedList;
 
+import myLinkedList.MyLinkedList.Node;
+
 public class Iterator {
-    MyLinkedList list;
+    private Node currentNode = null;
 
     public Iterator(MyLinkedList list) {
-        this.list = list;
-        list.currentNode = list.first;
+        currentNode = list.first;
     }
-
-    ;
 
 
     public boolean hasNext() {
-        return list.currentNode.getNext() != null;
+        return currentNode.getNext() != null;
     }
 
     public boolean hasPrevious() {
-        return list.currentNode.getPrevious() != null;
+        return currentNode.getPrevious() != null;
     }
 
     public void next() {
-        list.currentNode = list.currentNode.getNext();
+        currentNode = currentNode.getNext();
     }
 
     public void previous() {
-        list.currentNode = list.currentNode.getPrevious();
+        currentNode = currentNode.getPrevious();
     }
 
-    public MyLinkedList.Node getItem() {
-        return list.currentNode;
+    public Node getItem() {
+        return currentNode;
     }
 }
