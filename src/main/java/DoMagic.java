@@ -13,11 +13,11 @@ public class DoMagic {
         myLinkedList.add("Third");
         myLinkedList.add("Forth");
 
-        System.out.println(myLinkedList.first);
+        System.out.println(myLinkedList.getFirst());
 
         MyLinkedList<Integer> integerMyLinkedList = new MyLinkedList<>(new Integer[]{0, 1, 2});
 
-        System.out.println(integerMyLinkedList.last);
+        System.out.println(integerMyLinkedList.getLast());
 
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         stringMyLinkedList.add("Sixth");

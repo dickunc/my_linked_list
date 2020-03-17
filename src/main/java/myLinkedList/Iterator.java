@@ -6,7 +6,7 @@ public class Iterator {
     private Node currentNode = null;
 
     protected Iterator(MyLinkedList list) {
-        currentNode = list.first;
+        currentNode = list.getFirst();
     }
 
 

@@ -3,8 +3,25 @@ package myLinkedList;
 public class MyLinkedList<E> {
 
     public int size = 0;
-    public Node<E> first = null;
-    public Node<E> last = null;
+
+    private Node<E> first = null;
+    private Node<E> last = null;
+
+    public Node<E> getFirst() {
+        return first;
+    }
+
+    public void setFirst(Node<E> first) {
+        this.first = first;
+    }
+
+    public Node<E> getLast() {
+        return last;
+    }
+
+    public void setLast(Node<E> last) {
+        this.last = last;
+    }
 
     public MyLinkedList() {
     }

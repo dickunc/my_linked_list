@@ -15,7 +15,7 @@ public class MyLinkedListTest {
     @Test
     public void testToStringFirst() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Assert.assertEquals("Node{item=First, next=Second}", myLinkedList.first.toString());
+        Assert.assertEquals("Node{item=First, next=Second}", myLinkedList.getFirst().toString());
     }
 
     @Test
