@@ -11,16 +11,8 @@ public class MyLinkedList<E> {
         return first;
     }
 
-    public void setFirst(Node<E> first) {
-        this.first = first;
-    }
-
     public Node<E> getLast() {
         return last;
-    }
-
-    public void setLast(Node<E> last) {
-        this.last = last;
     }
 
     public MyLinkedList() {
