@@ -61,20 +61,6 @@ public class MyLinkedList<E> {
             this.next = next;
         }
 
-        public Node<E> getNext() {
-            if (this.next != null)
-                return this.next;
-                //   else return last; exception is needed
-            else return null;
-        }
-
-        public Node<E> getPrevious() {
-            if (this.previous != null)
-                return this.previous;
-                //  else return first; exception is needed
-            else return null;
-        }
-
 
         @Override
         public String toString() {
@@ -121,21 +107,25 @@ public class MyLinkedList<E> {
         }
 
         public boolean hasNext() {
-            return currentNode.getNext() != null;
+            return currentNode.next != null;
         }
 
         public boolean hasPrevious() {
-            return currentNode.getPrevious() != null;
+            return currentNode.previous != null;
         }
 
         public Node<E> next() {
-            currentNode = currentNode.getNext();
-            return currentNode;
+            if (currentNode.next != null) {
+                currentNode = currentNode.next;
+                return currentNode;
+            } else return null;
         }
 
         public Node<E> previous() {
-            currentNode = currentNode.getPrevious();
-            return currentNode;
+            if (currentNode.previous != null) {
+                currentNode = currentNode.previous;
+                return currentNode;
+            } else return null;
         }
 
         public Node<E> getItem() {
