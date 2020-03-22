@@ -1,4 +1,3 @@
-import myLinkedList.Iterator;
 import myLinkedList.MyLinkedList;
 
 import java.util.ArrayList;
@@ -21,7 +20,7 @@ public class DoMagic {
 
         MyLinkedList<String> stringMyLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         stringMyLinkedList.add("Sixth");
-        Iterator iterator = stringMyLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = stringMyLinkedList.getIterator();
         System.out.println(iterator.getItem());
 
         do {

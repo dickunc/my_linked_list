@@ -24,8 +24,8 @@ public class MyLinkedList<E> {
         }
     }
 
-    public Iterator getIterator() {
-        return new Iterator(this);
+    public Iterator<E> getIterator() {
+        return new Iterator<>(this);
     }
 
     public void add(E item) {
@@ -100,14 +100,46 @@ public class MyLinkedList<E> {
     @Override
     public String toString() {
         String toString;
-        Iterator iterator = this.getIterator();
-        toString = iterator.getItem().toString();
+        Iterator<E> iterator = this.getIterator();
 
+        StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
         do {
             iterator.next();
-            toString = toString + iterator.getItem().toString();
+            toStringBuilder.append(iterator.getItem().toString());
         } while (iterator.hasNext());
+        toString = toStringBuilder.toString();
 
         return toString;
+    }
+
+    public static class Iterator<E> extends MyLinkedList<E> {
+
+        private Node<E> currentNode = null;
+
+        private Iterator(MyLinkedList<E> list) {
+            currentNode = list.getFirst();
+        }
+
+        public boolean hasNext() {
+            return currentNode.getNext() != null;
+        }
+
+        public boolean hasPrevious() {
+            return currentNode.getPrevious() != null;
+        }
+
+        public Node<E> next() {
+            currentNode = currentNode.getNext();
+            return currentNode;
+        }
+
+        public Node<E> previous() {
+            currentNode = currentNode.getPrevious();
+            return currentNode;
+        }
+
+        public Node<E> getItem() {
+            return currentNode;
+        }
     }
 }

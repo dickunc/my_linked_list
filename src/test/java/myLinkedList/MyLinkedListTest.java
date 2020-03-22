@@ -21,7 +21,7 @@ public class MyLinkedListTest {
     @Test
     public void testToString() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         Assert.assertEquals("Node{item=Second, previous=First, next=Third}", iterator.getItem().toString());
     }
@@ -35,39 +35,52 @@ public class MyLinkedListTest {
     @Test
     public void iteratorNext() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
-        iterator.next();
-        Assert.assertEquals("Second", iterator.getItem().item);
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertEquals("Second", iterator.next().item);
     }
 
     @Test
     public void iteratorPrevious() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
         Assert.assertEquals("First", iterator.getItem().item);
     }
 
     @Test
-    public void iteratorHasPrevious() {
+    public void iteratorHasPreviousTrue() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
-        Assert.assertEquals(true, iterator.hasPrevious());
+        Assert.assertTrue(iterator.hasPrevious());
     }
 
     @Test
-    public void iteratorHasNext() {
+    public void iteratorHasPreviousFalse() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
-        Assert.assertEquals(true, iterator.hasNext());
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertFalse(iterator.hasPrevious());
+    }
+
+    @Test
+    public void iteratorHasNextTrue() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    public void iteratorHasNextFalse() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First"});
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertFalse(iterator.hasNext());
     }
 
     @Test
     public void iteratorGetItem() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Iterator iterator = myLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
         Assert.assertEquals("First", iterator.getItem().item);
