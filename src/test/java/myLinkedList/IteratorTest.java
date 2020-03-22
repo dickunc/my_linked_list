@@ -58,4 +58,5 @@ public class IteratorTest {
         iterator.previous();
         Assert.assertEquals("First", iterator.getItem().item);
     }
+
 }

@@ -39,10 +39,6 @@ public class MyLinkedList<E> {
             Node<E> newNode = new Node<>(item, last, null);
             last.next = newNode;
             last = newNode;
-
-            if (size == 2) {
-                first.next = newNode;
-            }
         }
     }
 
