@@ -17,9 +17,9 @@ public class MyLinkedListTest {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(new Integer[]{4, 8, 15, 16, 23, 42});
         MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
-        Integer result = iterator.getItem().item;
+        Integer result = iterator.getItem().value();
         do {
-            result += iterator.next().item;
+            result += iterator.next().value();
         } while (iterator.hasNext());
 
         Assert.assertEquals(108, (int) result);

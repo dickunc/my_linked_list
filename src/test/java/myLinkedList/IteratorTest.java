@@ -9,7 +9,7 @@ public class IteratorTest {
     public void iteratorNext() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        Assert.assertEquals("Second", iterator.next().item);
+        Assert.assertEquals("Second", iterator.next().value());
     }
 
     @Test
@@ -18,7 +18,7 @@ public class IteratorTest {
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
-        Assert.assertEquals("First", iterator.getItem().item);
+        Assert.assertEquals("First", iterator.getItem().value());
     }
 
     @Test
@@ -56,7 +56,6 @@ public class IteratorTest {
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
-        Assert.assertEquals("First", iterator.getItem().item);
+        Assert.assertEquals("First", iterator.getItem().value());
     }
-
 }

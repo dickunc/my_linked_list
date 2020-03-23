@@ -49,8 +49,8 @@ public class MyLinkedList<E> {
     }
 
     static class Node<E> extends MyLinkedList<E> {
-        E item;
 
+        private E item;
         private Node<E> previous;
         private Node<E> next;
 
@@ -60,20 +60,28 @@ public class MyLinkedList<E> {
             this.next = next;
         }
 
+        public E value() {
+            return item;
+        }
+
+        public void setValue(E item) {
+            this.item = item;
+        }
+
 
         @Override
         public String toString() {
             String string = "Node{";
-            if (this.item != null) {
+            if (this.value() != null) {
                 string = "Node{";
             }
             if (this.previous != null) {
-                string += "previous=" + this.previous.item + ", ";
+                string += "previous=" + this.previous.value() + ", ";
             }
             string += "item=" + item;
 
             if (this.next != null) {
-                string += ", next=" + this.next.item + "}";
+                string += ", next=" + this.next.value() + "}";
             } else
                 string += "}";
             return string;

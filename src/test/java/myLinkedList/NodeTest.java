@@ -46,4 +46,11 @@ public class NodeTest {
         Assert.assertEquals("Node{previous=Forth, item=Fifth}", myLinkedList.getLast().toString());
     }
 
+    @Test
+    public void testSetValue() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add("Old value");
+        myLinkedList.getIterator().getItem().setValue("New value");
+        Assert.assertEquals("New value", myLinkedList.getFirst().value());
+    }
 }
