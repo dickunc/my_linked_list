@@ -84,6 +84,7 @@ public class MyLinkedList<E> {
 
         StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
         do {
+            toStringBuilder.append("\n");
             iterator.next();
             toStringBuilder.append(iterator.getItem().toString());
         } while (iterator.hasNext());
