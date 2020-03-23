@@ -37,12 +37,12 @@ public class NodeTest {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
-        Assert.assertEquals("Node{item=Second, previous=First, next=Third}", iterator.getItem().toString());
+        Assert.assertEquals("Node{previous=First, item=Second, next=Third}", iterator.getItem().toString());
     }
 
     @Test
     public void testToStringLast() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Assert.assertEquals("Node{item=Fifth, previous=Forth}", myLinkedList.getLast().toString());
+        Assert.assertEquals("Node{previous=Forth, item=Fifth}", myLinkedList.getLast().toString());
     }
 }
