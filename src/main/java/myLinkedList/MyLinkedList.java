@@ -60,22 +60,20 @@ public class MyLinkedList<E> {
 
         @Override
         public String toString() {
-            if ((this.previous != null) && (this.next != null)) {
-                return "Node{" +
-                        "item=" + item +
-                        ", previous=" + previous.item +
-                        ", next=" + next.item +
-                        '}';
-            } else if (this.previous == null) {
-                return "Node{" +
-                        "item=" + item +
-                        ", next=" + next.item +
-                        '}';
+            String string = "Node{";
+            if (this.item != null) {
+                string = "Node{";
+            }
+            if (this.previous != null) {
+                string += "previous=" + this.previous.item + ", ";
+            }
+            string += "item=" + item;
+
+            if (this.next != null) {
+                string += ", next=" + this.next.item + "}";
             } else
-                return "Node{" +
-                        "item=" + item +
-                        ", previous=" + previous.item +
-                        '}';
+                string += "}";
+            return string;
         }
     }
 
