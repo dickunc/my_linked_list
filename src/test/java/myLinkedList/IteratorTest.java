@@ -13,6 +13,14 @@ public class IteratorTest {
     }
 
     @Test
+    public void iteratorNextNull() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First"});
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertEquals("NPE", iterator.next().value());
+    }
+
+
+    @Test
     public void iteratorPrevious() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
@@ -20,6 +28,15 @@ public class IteratorTest {
         iterator.previous();
         Assert.assertEquals("First", iterator.getItem().value());
     }
+
+    @Test
+    public void iteratorPreviousNull() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        iterator.previous();
+        Assert.assertEquals("NPE", iterator.getItem().value());
+    }
+
 
     @Test
     public void iteratorHasPreviousTrue() {
