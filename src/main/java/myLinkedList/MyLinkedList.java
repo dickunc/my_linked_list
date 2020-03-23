@@ -42,8 +42,11 @@ public class MyLinkedList<E> {
         }
     }
 
-
-
+    public void add(E[] items) {
+        for (E item : items) {
+            add(item);
+        }
+    }
 
     static class Node<E> extends MyLinkedList<E> {
         E item;
@@ -79,7 +82,6 @@ public class MyLinkedList<E> {
 
     @Override
     public String toString() {
-        String toString;
         Iterator<E> iterator = this.getIterator();
 
         StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
@@ -88,6 +90,7 @@ public class MyLinkedList<E> {
             iterator.next();
             toStringBuilder.append(iterator.getItem().toString());
         } while (iterator.hasNext());
+        String toString;
         toString = toStringBuilder.toString();
 
         return toString;
@@ -95,7 +98,7 @@ public class MyLinkedList<E> {
 
     public static class Iterator<E> extends MyLinkedList<E> {
 
-        private Node<E> currentNode = null;
+        private Node<E> currentNode;
 
         private Iterator(MyLinkedList<E> list) {
             currentNode = list.getFirst();
