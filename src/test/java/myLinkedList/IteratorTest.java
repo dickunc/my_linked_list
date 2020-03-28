@@ -1,6 +1,7 @@
 package myLinkedList;
 
 import org.junit.Assert;
+import org.junit.Assume;
 import org.junit.Test;
 
 public class IteratorTest {
@@ -12,11 +13,11 @@ public class IteratorTest {
         Assert.assertEquals("Second", iterator.next().value());
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void iteratorNextNull() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        Assert.assertEquals("NPE", iterator.next().value());
+        iterator.next().value();
     }
 
 
@@ -29,12 +30,12 @@ public class IteratorTest {
         Assert.assertEquals("First", iterator.getItem().value());
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void iteratorPreviousNull() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        iterator.previous();
-        Assert.assertEquals("NPE", iterator.getItem().value());
+        iterator.previous().value();
+
     }
 
 

@@ -2,7 +2,7 @@ package myLinkedList;
 
 public class MyLinkedList<E> {
 
-    public int size = 0;
+    private int size = 0;
 
     private Node<E> first = null;
     private Node<E> last = null;
@@ -46,6 +46,10 @@ public class MyLinkedList<E> {
         for (E item : items) {
             add(item);
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 
     static class Node<E> extends MyLinkedList<E> {
@@ -120,14 +124,14 @@ public class MyLinkedList<E> {
             return currentNode.previous != null;
         }
 
-        public Node<E> next() {
+        public Node<E> next() throws NullPointerException {
             if (currentNode.next != null) {
                 currentNode = currentNode.next;
                 return currentNode;
             } else return null;
         }
 
-        public Node<E> previous() {
+        public Node<E> previous() throws NullPointerException {
             if (currentNode.previous != null) {
                 currentNode = currentNode.previous;
                 return currentNode;

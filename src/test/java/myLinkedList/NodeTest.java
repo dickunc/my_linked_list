@@ -9,7 +9,7 @@ public class NodeTest {
     public void testNewNode() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         myLinkedList.add("Sixth");
-        Assert.assertEquals(6, myLinkedList.size);
+        Assert.assertEquals(6, myLinkedList.getSize());
     }
 
     @Test
