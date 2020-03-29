@@ -7,12 +7,11 @@ import java.util.List;
 public class DoMagic {
     public static void main(String[] args) {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add("First");
-        myLinkedList.add("Second");
-        myLinkedList.add("Third");
-        myLinkedList.add("Forth");
 
         System.out.println(myLinkedList.getFirst());
+        myLinkedList.getIterator();
+        // myLinkedList.add("Item");
+        // myLinkedList.getIterator();
 
         MyLinkedList<Integer> integerMyLinkedList = new MyLinkedList<>(new Integer[]{0, 1, 2});
 
@@ -25,7 +24,9 @@ public class DoMagic {
 
         do {
             iterator.next();
-            System.out.println(iterator.getItem());
+            System.out.println(iterator.getItem().value());
         } while (iterator.hasNext());
+
+
     }
 }

@@ -35,4 +35,15 @@ public class MyLinkedListTest {
                 "Node{previous=Forth, item=Fifth}", myLinkedList.toString());
     }
 
+    @Test(expected = NullPointerException.class)
+    public void testGetFirstEmpty() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add(myLinkedList.getFirst().value());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testGetLastEmpty() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add(myLinkedList.getLast().value());
+    }
 }

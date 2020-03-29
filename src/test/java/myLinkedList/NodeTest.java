@@ -53,4 +53,5 @@ public class NodeTest {
         myLinkedList.getIterator().getItem().setValue("New value");
         Assert.assertEquals("New value", myLinkedList.getFirst().value());
     }
+
 }

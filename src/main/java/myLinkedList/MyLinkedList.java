@@ -7,14 +7,6 @@ public class MyLinkedList<E> {
     private Node<E> first = null;
     private Node<E> last = null;
 
-    public Node<E> getFirst() {
-        return first;
-    }
-
-    public Node<E> getLast() {
-        return last;
-    }
-
     public MyLinkedList() {
     }
 
@@ -24,7 +16,21 @@ public class MyLinkedList<E> {
         }
     }
 
-    public Iterator<E> getIterator() {
+    public Node<E> getFirst() throws NullPointerException {
+        if (first == null) {
+            throw new NullPointerException("First element is not found");
+        }
+        return first;
+    }
+
+    public Node<E> getLast() throws NullPointerException {
+        if (last == null) {
+            throw new NullPointerException("Last element is not found");
+        }
+        return last;
+    }
+
+    public Iterator<E> getIterator() throws NullPointerException {
         return new Iterator<>(this);
     }
 
@@ -52,7 +58,23 @@ public class MyLinkedList<E> {
         return size;
     }
 
-    static class Node<E> extends MyLinkedList<E> {
+    @Override
+    public String toString() {
+        Iterator<E> iterator = this.getIterator();
+
+        StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
+        do {
+            toStringBuilder.append("\n");
+            iterator.next();
+            toStringBuilder.append(iterator.getItem().toString());
+        } while (iterator.hasNext());
+        String toString;
+        toString = toStringBuilder.toString();
+
+        return toString;
+    }
+
+    public static class Node<E> extends MyLinkedList<E> {
 
         private E item;
         private Node<E> previous;
@@ -64,7 +86,7 @@ public class MyLinkedList<E> {
             this.next = next;
         }
 
-        public E value() {
+        public E value() throws NullPointerException {
             return item;
         }
 
@@ -92,28 +114,17 @@ public class MyLinkedList<E> {
         }
     }
 
-    @Override
-    public String toString() {
-        Iterator<E> iterator = this.getIterator();
-
-        StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
-        do {
-            toStringBuilder.append("\n");
-            iterator.next();
-            toStringBuilder.append(iterator.getItem().toString());
-        } while (iterator.hasNext());
-        String toString;
-        toString = toStringBuilder.toString();
-
-        return toString;
-    }
-
     public static class Iterator<E> extends MyLinkedList<E> {
 
         private Node<E> currentNode;
 
         private Iterator(MyLinkedList<E> list) {
-            currentNode = list.getFirst();
+            try {
+                currentNode = list.getFirst();
+            } catch (NullPointerException e) {
+                System.out.println(e.getMessage());
+                System.out.println("Fill the list and try again");
+            }
         }
 
         public boolean hasNext() {

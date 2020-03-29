@@ -76,4 +76,10 @@ public class IteratorTest {
         iterator.previous();
         Assert.assertEquals("First", iterator.getItem().value());
     }
+
+    @Test(expected = NullPointerException.class)
+    public void testGetIteratorEmptyList() {
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
+        myLinkedList.getIterator().getItem().value();
+    }
 }
