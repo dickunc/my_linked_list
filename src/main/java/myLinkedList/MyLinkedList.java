@@ -19,19 +19,26 @@ public class MyLinkedList<E> {
     public Node<E> getFirst() throws NullPointerException {
         if (first == null) {
             throw new NullPointerException("First element is not found");
-        }
-        return first;
+        } else
+            return first;
     }
 
     public Node<E> getLast() throws NullPointerException {
         if (last == null) {
             throw new NullPointerException("Last element is not found");
-        }
-        return last;
+        } else
+            return last;
     }
 
     public Iterator<E> getIterator() throws NullPointerException {
-        return new Iterator<>(this);
+        try {
+            return new Iterator<>(this);
+        } catch (NullPointerException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            System.out.println("It's Ok, resuming the program");
+        }
     }
 
     public void add(E item) {
