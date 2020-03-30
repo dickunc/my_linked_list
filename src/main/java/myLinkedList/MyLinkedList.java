@@ -36,8 +36,6 @@ public class MyLinkedList<E> {
         } catch (NullPointerException e) {
             System.out.println(e.getMessage());
             return null;
-        } finally {
-            System.out.println("It's Ok, resuming the program");
         }
     }
 

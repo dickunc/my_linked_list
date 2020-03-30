@@ -8,10 +8,9 @@ public class DoMagic {
     public static void main(String[] args) {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
 
-        System.out.println(myLinkedList.getFirst());
-        myLinkedList.getIterator();
-        // myLinkedList.add("Item");
-        // myLinkedList.getIterator();
+        System.out.println(myLinkedList.getIterator().getItem());
+        myLinkedList.add("Item");
+        System.out.println(myLinkedList.getIterator().getItem());
 
         MyLinkedList<Integer> integerMyLinkedList = new MyLinkedList<>(new Integer[]{0, 1, 2});
 
