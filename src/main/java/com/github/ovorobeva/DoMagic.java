@@ -1,8 +1,6 @@
-import myLinkedList.MyLinkedList;
+package com.github.ovorobeva;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 
 public class DoMagic {
     public static void main(String[] args) {

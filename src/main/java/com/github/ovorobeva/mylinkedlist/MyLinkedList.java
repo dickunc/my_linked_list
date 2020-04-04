@@ -1,4 +1,4 @@
-package myLinkedList;
+package com.github.ovorobeva.mylinkedlist;
 
 public class MyLinkedList<E> {
 

@@ -1,5 +1,6 @@
-package myLinkedList;
+package com;
 
+import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
