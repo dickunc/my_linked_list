@@ -18,12 +18,13 @@ public class MyLinkedListTest {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(new Integer[]{4, 8, 15, 16, 23, 42});
         MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
-        Integer result = iterator.getItem().value();
+        Integer[] expectedResult = new Integer[]{4, 8, 15, 16, 23, 42};
+        Assert.assertEquals(expectedResult[0], iterator.getItem().value());
+        int i = 1;
         do {
-            result += iterator.next().value();
+            Assert.assertEquals(expectedResult[i++], iterator.next().value());
         } while (iterator.hasNext());
 
-        Assert.assertEquals(108, (int) result);
     }
 
     @Test

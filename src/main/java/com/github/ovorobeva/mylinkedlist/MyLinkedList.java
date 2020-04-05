@@ -16,21 +16,21 @@ public class MyLinkedList<E> {
         }
     }
 
-    public Node<E> getFirst() throws NullPointerException {
+    public Node<E> getFirst() {
         if (first == null) {
             throw new NullPointerException("First element is not found");
         } else
             return first;
     }
 
-    public Node<E> getLast() throws NullPointerException {
+    public Node<E> getLast() {
         if (last == null) {
             throw new NullPointerException("Last element is not found");
         } else
             return last;
     }
 
-    public Iterator<E> getIterator() throws NullPointerException {
+    public Iterator<E> getIterator() {
         try {
             return new Iterator<>(this);
         } catch (NullPointerException e) {
@@ -79,7 +79,7 @@ public class MyLinkedList<E> {
         return toString;
     }
 
-    public static class Node<E> extends MyLinkedList<E> {
+    public static class Node<E> {
 
         private E item;
         private Node<E> previous;
@@ -91,7 +91,7 @@ public class MyLinkedList<E> {
             this.next = next;
         }
 
-        public E value() throws NullPointerException {
+        public E value() {
             return item;
         }
 
@@ -119,7 +119,7 @@ public class MyLinkedList<E> {
         }
     }
 
-    public static class Iterator<E> extends MyLinkedList<E> {
+    public static class Iterator<E> {
 
         private Node<E> currentNode;
 
@@ -140,14 +140,14 @@ public class MyLinkedList<E> {
             return currentNode.previous != null;
         }
 
-        public Node<E> next() throws NullPointerException {
+        public Node<E> next() {
             if (currentNode.next != null) {
                 currentNode = currentNode.next;
                 return currentNode;
             } else return null;
         }
 
-        public Node<E> previous() throws NullPointerException {
+        public Node<E> previous() {
             if (currentNode.previous != null) {
                 currentNode = currentNode.previous;
                 return currentNode;

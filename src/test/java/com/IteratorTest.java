@@ -82,4 +82,25 @@ public class IteratorTest {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.getIterator().getItem().value();
     }
+
+    @Test
+    public void emptyListIteratorHasNext() {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        final MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        Assert.assertFalse(iterator.hasNext());
+    }
+
+    @Test
+    public void fullIterationTest() {
+        MyLinkedList<Integer> myLinkedList = new MyLinkedList<>(new Integer[]{1, 2, 3, 4});
+        Assert.assertEquals(1, (int) myLinkedList.getFirst().value());
+
+        final MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
+
+        int expectedValue = 2;
+        while (iterator.hasNext()) {
+            Assert.assertEquals(expectedValue, (int) iterator.next().value());
+            expectedValue++;
+        }
+    }
 }
