@@ -122,7 +122,7 @@ public class MyLinkedList<E> {
     public static class Iterator<E> {
 
         private Node<E> currentNode;
-
+//TODO: try-catch NPE should be removed
         private Iterator(MyLinkedList<E> list) {
             try {
                 currentNode = list.getFirst();
@@ -132,6 +132,7 @@ public class MyLinkedList<E> {
             }
         }
 
+        //TODO: the emptyList test should be fixed
         public boolean hasNext() {
             return currentNode.next != null;
         }
