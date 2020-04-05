@@ -15,7 +15,7 @@ public class MyLinkedList<E> {
             add(item);
         }
     }
-
+//TODO: Remove NPE
     public Node<E> getFirst() {
         if (first == null) {
             throw new NullPointerException("First element is not found");
@@ -23,6 +23,7 @@ public class MyLinkedList<E> {
             return first;
     }
 
+    //TODO: Remove NPE
     public Node<E> getLast() {
         if (last == null) {
             throw new NullPointerException("Last element is not found");
@@ -30,6 +31,7 @@ public class MyLinkedList<E> {
             return last;
     }
 
+    //TODO: Create your own new exception (NoSuchElementException)
     public Iterator<E> getIterator() {
         try {
             return new Iterator<>(this);
@@ -155,6 +157,7 @@ public class MyLinkedList<E> {
             } else return null;
         }
 
+        //TODO: Delete getItem method
         public Node<E> getItem() {
             return currentNode;
         }
