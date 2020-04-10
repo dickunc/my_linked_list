@@ -1,5 +1,6 @@
 package com;
 
+import com.github.ovorobeva.NoSuchElementException;
 import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,7 +15,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    public void testAddArray() {
+    public void testAddArray() throws NoSuchElementException {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(new Integer[]{4, 8, 15, 16, 23, 42});
         MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
@@ -37,14 +38,14 @@ public class MyLinkedListTest {
                 "Node{previous=Forth, item=Fifth}", myLinkedList.toString());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testGetFirstEmpty() {
+    @Test(expected = NoSuchElementException.class)
+    public void testGetFirstEmpty() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(myLinkedList.getFirst().value());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void testGetLastEmpty() {
+    @Test(expected = NoSuchElementException.class)
+    public void testGetLastEmpty() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(myLinkedList.getLast().value());
     }

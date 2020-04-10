@@ -2,8 +2,10 @@ package com.github.ovorobeva;
 
 import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 
+import java.util.LinkedList;
+
 public class DoMagic {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
 
         System.out.println(myLinkedList.getIterator().getItem());
@@ -23,6 +25,8 @@ public class DoMagic {
             iterator.next();
             System.out.println(iterator.getItem().value());
         } while (iterator.hasNext());
+        LinkedList list = new LinkedList();
+        list.iterator();
 
 
     }

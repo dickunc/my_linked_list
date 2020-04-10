@@ -1,5 +1,6 @@
 package com;
 
+import com.github.ovorobeva.NoSuchElementException;
 import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,14 +8,14 @@ import org.junit.Test;
 public class IteratorTest {
 
     @Test
-    public void iteratorNext() {
+    public void iteratorNext() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         Assert.assertEquals("Second", iterator.next().value());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void iteratorNextNull() {
+    @Test(expected = NoSuchElementException.class)
+    public void iteratorNextNull() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next().value();
@@ -22,7 +23,7 @@ public class IteratorTest {
 
 
     @Test
-    public void iteratorPrevious() {
+    public void iteratorPrevious() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
@@ -30,8 +31,8 @@ public class IteratorTest {
         Assert.assertEquals("First", iterator.getItem().value());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void iteratorPreviousNull() {
+    @Test(expected = NoSuchElementException.class)
+    public void iteratorPreviousNull() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.previous().value();
@@ -40,7 +41,7 @@ public class IteratorTest {
 
 
     @Test
-    public void iteratorHasPreviousTrue() {
+    public void iteratorHasPreviousTrue() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
@@ -69,7 +70,7 @@ public class IteratorTest {
     }
 
     @Test
-    public void iteratorGetItem() {
+    public void iteratorGetItem() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
@@ -88,10 +89,12 @@ public class IteratorTest {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         final MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         Assert.assertFalse(iterator.hasNext());
+        myLinkedList.add("e");
+        Assert.assertTrue(iterator.hasNext());
     }
 
     @Test
-    public void fullIterationTest() {
+    public void fullIterationTest() throws NoSuchElementException {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>(new Integer[]{1, 2, 3, 4});
         Assert.assertEquals(1, (int) myLinkedList.getFirst().value());
 

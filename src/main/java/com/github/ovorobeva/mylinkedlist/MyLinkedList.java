@@ -1,5 +1,7 @@
 package com.github.ovorobeva.mylinkedlist;
 
+import com.github.ovorobeva.NoSuchElementException;
+
 public class MyLinkedList<E> {
 
     private int size = 0;
@@ -15,30 +17,24 @@ public class MyLinkedList<E> {
             add(item);
         }
     }
-//TODO: Remove NPE
-    public Node<E> getFirst() {
+
+    public Node<E> getFirst() throws NoSuchElementException {
         if (first == null) {
-            throw new NullPointerException("First element is not found");
+            throw new NoSuchElementException("First element is not found");
         } else
             return first;
     }
 
-    //TODO: Remove NPE
-    public Node<E> getLast() {
+    public Node<E> getLast() throws NoSuchElementException {
         if (last == null) {
-            throw new NullPointerException("Last element is not found");
+            throw new NoSuchElementException("Last element is not found");
         } else
             return last;
     }
 
     //TODO: Create your own new exception (NoSuchElementException)
     public Iterator<E> getIterator() {
-        try {
             return new Iterator<>(this);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-            return null;
-        }
     }
 
     public void add(E item) {
@@ -72,7 +68,11 @@ public class MyLinkedList<E> {
         StringBuilder toStringBuilder = new StringBuilder(iterator.getItem().toString());
         do {
             toStringBuilder.append("\n");
-            iterator.next();
+            try {
+                iterator.next();
+            } catch (NoSuchElementException e) {
+                e.printStackTrace();
+            }
             toStringBuilder.append(iterator.getItem().toString());
         } while (iterator.hasNext());
         String toString;
@@ -121,40 +121,48 @@ public class MyLinkedList<E> {
         }
     }
 
+    //TODO: Implement iterable
     public static class Iterator<E> {
 
         private Node<E> currentNode;
-//TODO: try-catch NPE should be removed
+
         private Iterator(MyLinkedList<E> list) {
             try {
                 currentNode = list.getFirst();
-            } catch (NullPointerException e) {
-                System.out.println(e.getMessage());
+            } catch (NoSuchElementException e) {
                 System.out.println("Fill the list and try again");
             }
         }
 
         //TODO: the emptyList test should be fixed
         public boolean hasNext() {
-            return currentNode.next != null;
+            if (currentNode != null) {
+                return currentNode.next != null;
+            } else {
+                return false;
+            }
         }
 
         public boolean hasPrevious() {
-            return currentNode.previous != null;
+            if (currentNode != null) {
+                return currentNode.previous != null;
+            } else {
+                return false;
+            }
         }
 
-        public Node<E> next() {
+        public Node<E> next() throws NoSuchElementException {
             if (currentNode.next != null) {
                 currentNode = currentNode.next;
                 return currentNode;
-            } else return null;
+            } else throw new NoSuchElementException("Next element is not found");
         }
 
-        public Node<E> previous() {
+        public Node<E> previous() throws NoSuchElementException {
             if (currentNode.previous != null) {
                 currentNode = currentNode.previous;
                 return currentNode;
-            } else return null;
+            } else throw new NoSuchElementException("Previous element is not found");
         }
 
         //TODO: Delete getItem method

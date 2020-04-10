@@ -1,5 +1,6 @@
 package com;
 
+import com.github.ovorobeva.NoSuchElementException;
 import com.github.ovorobeva.mylinkedlist.MyLinkedList;
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,27 +15,27 @@ public class NodeTest {
     }
 
     @Test
-    public void testToStringFirst() {
+    public void testToStringFirst() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         Assert.assertEquals("Node{item=First, next=Second}", myLinkedList.getFirst().toString());
     }
 
     @Test
-    public void testToStringFirstAlone() {
+    public void testToStringFirstAlone() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("Alone Element");
         Assert.assertEquals("Node{item=Alone Element}", myLinkedList.getFirst().toString());
     }
 
     @Test
-    public void testToStringLastAlone() {
+    public void testToStringLastAlone() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("Alone Element");
         Assert.assertEquals("Node{item=Alone Element}", myLinkedList.getLast().toString());
     }
 
     @Test
-    public void testNodeToString() {
+    public void testNodeToString() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
@@ -42,13 +43,13 @@ public class NodeTest {
     }
 
     @Test
-    public void testToStringLast() {
+    public void testToStringLast() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         Assert.assertEquals("Node{previous=Forth, item=Fifth}", myLinkedList.getLast().toString());
     }
 
     @Test
-    public void testSetValue() {
+    public void testSetValue() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("Old value");
         myLinkedList.getIterator().getItem().setValue("New value");
