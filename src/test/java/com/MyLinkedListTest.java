@@ -41,12 +41,12 @@ public class MyLinkedListTest {
     @Test(expected = NoSuchElementException.class)
     public void testGetFirstEmpty() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add(myLinkedList.getFirst().value());
+        myLinkedList.add(myLinkedList.getFirst());
     }
 
     @Test(expected = NoSuchElementException.class)
     public void testGetLastEmpty() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        myLinkedList.add(myLinkedList.getLast().value());
+        myLinkedList.add(myLinkedList.getLast());
     }
 }

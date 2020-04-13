@@ -18,22 +18,36 @@ public class MyLinkedList<E> {
         }
     }
 
-    public Node<E> getFirst() throws NoSuchElementException {
+    public Node<E> getFirstNode() throws NoSuchElementException {
         if (first == null) {
             throw new NoSuchElementException("First element is not found");
         } else
             return first;
     }
 
-    public Node<E> getLast() throws NoSuchElementException {
+    public E getFirst() throws NoSuchElementException {
+        if (first == null) {
+            throw new NoSuchElementException("First element is not found");
+        } else
+            return first.item;
+    }
+
+    public Node<E> getLastNode() throws NoSuchElementException {
         if (last == null) {
             throw new NoSuchElementException("Last element is not found");
         } else
             return last;
     }
 
+    public E getLast() throws NoSuchElementException {
+        if (last == null) {
+            throw new NoSuchElementException("Last element is not found");
+        } else
+            return last.item;
+    }
+
     public Iterator<E> getIterator() {
-            return new Iterator<>(this);
+        return new Iterator<>(this);
     }
 
     public void add(E item) {
@@ -92,24 +106,21 @@ public class MyLinkedList<E> {
             this.next = next;
         }
 
-        public E value() {
-            return item;
-        }
 
 
         @Override
         public String toString() {
             String string = "Node{";
-            if (this.value() != null) {
+            if (this.item != null) {
                 string = "Node{";
             }
             if (this.previous != null) {
-                string += "previous=" + this.previous.value() + ", ";
+                string += "previous=" + this.previous.item + ", ";
             }
             string += "item=" + item;
 
             if (this.next != null) {
-                string += ", next=" + this.next.value() + "}";
+                string += ", next=" + this.next.item + "}";
             } else
                 string += "}";
             return string;
@@ -123,7 +134,7 @@ public class MyLinkedList<E> {
 
         private Iterator(MyLinkedList<E> list) {
             try {
-                currentNode = list.getFirst();
+                currentNode = list.getFirstNode();
             } catch (NoSuchElementException e) {
                 System.out.println("Fill the list and try again");
                 currentNode = null;
@@ -149,19 +160,23 @@ public class MyLinkedList<E> {
         public E next() throws NoSuchElementException {
             if (currentNode.next != null) {
                 currentNode = currentNode.next;
-                return currentNode.value();
+                return currentNode.item;
             } else throw new NoSuchElementException("Next element is not found");
         }
 
         public E previous() throws NoSuchElementException {
             if (currentNode.previous != null) {
                 currentNode = currentNode.previous;
-                return currentNode.value();
+                return currentNode.item;
             } else throw new NoSuchElementException("Previous element is not found");
         }
 
         public E getItem() {
-            return currentNode.value();
+            return currentNode.item;
+        }
+
+        public void setValue(E value) {
+            currentNode.item = value;
         }
 
 

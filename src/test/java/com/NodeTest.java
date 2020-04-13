@@ -52,8 +52,8 @@ public class NodeTest {
     public void testSetValue() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add("Old value");
-        myLinkedList.getIterator().getItem().setValue("New value");
-        Assert.assertEquals("New value", myLinkedList.getFirst().value());
+        myLinkedList.getIterator().setValue("New value");
+        Assert.assertEquals("New value", myLinkedList.getFirst());
     }
 
 }

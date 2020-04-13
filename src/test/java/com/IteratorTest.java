@@ -98,7 +98,7 @@ public class IteratorTest {
     @Test
     public void fullIterationTest() throws NoSuchElementException {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>(new Integer[]{1, 2, 3, 4});
-        Assert.assertEquals(1, (int) myLinkedList.getFirst().value());
+        Assert.assertEquals(1, (int) myLinkedList.getFirst());
 
         final MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
 
