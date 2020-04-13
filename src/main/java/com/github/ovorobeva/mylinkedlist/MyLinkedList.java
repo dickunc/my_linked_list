@@ -96,10 +96,6 @@ public class MyLinkedList<E> {
             return item;
         }
 
-        public void setValue(E item) {
-            this.item = item;
-        }
-
 
         @Override
         public String toString() {
@@ -150,23 +146,24 @@ public class MyLinkedList<E> {
             }
         }
 
-        public Node<E> next() throws NoSuchElementException {
+        public E next() throws NoSuchElementException {
             if (currentNode.next != null) {
                 currentNode = currentNode.next;
-                return currentNode;
+                return currentNode.value();
             } else throw new NoSuchElementException("Next element is not found");
         }
 
-        public Node<E> previous() throws NoSuchElementException {
+        public E previous() throws NoSuchElementException {
             if (currentNode.previous != null) {
                 currentNode = currentNode.previous;
-                return currentNode;
+                return currentNode.value();
             } else throw new NoSuchElementException("Previous element is not found");
         }
 
-        //TODO: Delete getItem method
-        public Node<E> getItem() {
-            return currentNode;
+        public E getItem() {
+            return currentNode.value();
         }
+
+
     }
 }

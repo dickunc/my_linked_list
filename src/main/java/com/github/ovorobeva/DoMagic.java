@@ -23,7 +23,7 @@ public class DoMagic {
 
         do {
             iterator.next();
-            System.out.println(iterator.getItem().value());
+            System.out.println(iterator.getItem());
         } while (iterator.hasNext());
         LinkedList list = new LinkedList();
         list.iterator();

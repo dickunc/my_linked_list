@@ -20,10 +20,10 @@ public class MyLinkedListTest {
         myLinkedList.add(new Integer[]{4, 8, 15, 16, 23, 42});
         MyLinkedList.Iterator<Integer> iterator = myLinkedList.getIterator();
         Integer[] expectedResult = new Integer[]{4, 8, 15, 16, 23, 42};
-        Assert.assertEquals(expectedResult[0], iterator.getItem().value());
+        Assert.assertEquals(expectedResult[0], iterator.getItem());
         int i = 1;
         do {
-            Assert.assertEquals(expectedResult[i++], iterator.next().value());
+            Assert.assertEquals(expectedResult[i++], iterator.next());
         } while (iterator.hasNext());
 
     }

@@ -11,14 +11,14 @@ public class IteratorTest {
     public void iteratorNext() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        Assert.assertEquals("Second", iterator.next().value());
+        Assert.assertEquals("Second", iterator.next());
     }
 
     @Test(expected = NoSuchElementException.class)
     public void iteratorNextNull() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        iterator.next().value();
+        iterator.next();
     }
 
 
@@ -28,14 +28,14 @@ public class IteratorTest {
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
-        Assert.assertEquals("First", iterator.getItem().value());
+        Assert.assertEquals("First", iterator.getItem());
     }
 
     @Test(expected = NoSuchElementException.class)
     public void iteratorPreviousNull() throws NoSuchElementException {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
-        iterator.previous().value();
+        iterator.previous();
 
     }
 
@@ -75,13 +75,13 @@ public class IteratorTest {
         MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         iterator.next();
         iterator.previous();
-        Assert.assertEquals("First", iterator.getItem().value());
+        Assert.assertEquals("First", iterator.getItem());
     }
 
     @Test(expected = NullPointerException.class)
     public void testGetIteratorEmptyList() {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<>();
-        myLinkedList.getIterator().getItem().value();
+        myLinkedList.getIterator().getItem();
     }
 
     @Test
@@ -104,7 +104,7 @@ public class IteratorTest {
 
         int expectedValue = 2;
         while (iterator.hasNext()) {
-            Assert.assertEquals(expectedValue, (int) iterator.next().value());
+            Assert.assertEquals(expectedValue, (int) iterator.next());
             expectedValue++;
         }
     }
