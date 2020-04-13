@@ -32,7 +32,6 @@ public class MyLinkedList<E> {
             return last;
     }
 
-    //TODO: Create your own new exception (NoSuchElementException)
     public Iterator<E> getIterator() {
             return new Iterator<>(this);
     }
@@ -131,10 +130,10 @@ public class MyLinkedList<E> {
                 currentNode = list.getFirst();
             } catch (NoSuchElementException e) {
                 System.out.println("Fill the list and try again");
+                currentNode = null;
             }
         }
 
-        //TODO: the emptyList test should be fixed
         public boolean hasNext() {
             if (currentNode != null) {
                 return currentNode.next != null;

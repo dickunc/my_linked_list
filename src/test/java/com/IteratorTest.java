@@ -87,9 +87,11 @@ public class IteratorTest {
     @Test
     public void emptyListIteratorHasNext() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
-        final MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
+        MyLinkedList.Iterator<String> iterator = myLinkedList.getIterator();
         Assert.assertFalse(iterator.hasNext());
         myLinkedList.add("e");
+        iterator = myLinkedList.getIterator();
+        myLinkedList.add("123");
         Assert.assertTrue(iterator.hasNext());
     }
 
