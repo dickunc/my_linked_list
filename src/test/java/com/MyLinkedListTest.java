@@ -49,4 +49,13 @@ public class MyLinkedListTest {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>();
         myLinkedList.add(myLinkedList.getLast());
     }
+
+    @Test
+    public void testGetLast() throws NoSuchElementException {
+        MyLinkedList<String> myLinkedList = new MyLinkedList<>();
+        myLinkedList.add("First");
+        myLinkedList.add("Last");
+        Assert.assertEquals("Last", myLinkedList.getLast());
+    }
+
 }
