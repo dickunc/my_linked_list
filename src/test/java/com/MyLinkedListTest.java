@@ -31,11 +31,11 @@ public class MyLinkedListTest {
     @Test
     public void testListToString() {
         MyLinkedList<String> myLinkedList = new MyLinkedList<>(new String[]{"First", "Second", "Third", "Forth", "Fifth"});
-        Assert.assertEquals("Node{item=First, next=Second}\n" +
-                "Node{previous=First, item=Second, next=Third}\n" +
-                "Node{previous=Second, item=Third, next=Forth}\n" +
-                "Node{previous=Third, item=Forth, next=Fifth}\n" +
-                "Node{previous=Forth, item=Fifth}", myLinkedList.toString());
+        Assert.assertEquals("First\n" +
+                "Second\n" +
+                "Third\n" +
+                "Forth\n" +
+                "Fifth", myLinkedList.toString());
     }
 
     @Test(expected = NoSuchElementException.class)
